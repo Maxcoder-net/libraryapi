@@ -8,7 +8,7 @@ import jakarta.persistence.Table;
 public class Book {
 
 	
-	Book(){};
+	public Book(){};
 	
 	
 	private String Title;
