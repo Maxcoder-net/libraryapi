@@ -1,13 +1,33 @@
 package model;
 
+import java.util.Objects;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.Table;
 
-@Table
+@Table(name ="Book")
 @Entity
 public class Book {
 
 	
+	@Override
+	public int hashCode() {
+		return Objects.hash(Id, Title, author, isbn);
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Book other = (Book) obj;
+		return Id == other.Id && Objects.equals(Title, other.Title) && Objects.equals(author, other.author)
+				&& Objects.equals(isbn, other.isbn);
+	}
+
 	public Book(){};
 	
 	

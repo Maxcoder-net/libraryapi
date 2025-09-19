@@ -1,5 +1,7 @@
 package model;
 
+import java.util.Objects;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
@@ -8,7 +10,7 @@ import jakarta.persistence.Table;
 
 
 @Entity
-@Table(name = "Borrower")
+@Table(name = "BORROWER")
 public class Borrower {
 	
 	
@@ -40,6 +42,23 @@ public class Borrower {
 
 	public String getEmail() {
 		return email;
+	}
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(email, idborrower, name);
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Borrower other = (Borrower) obj;
+		return Objects.equals(email, other.email) && idborrower == other.idborrower && Objects.equals(name, other.name);
 	}
 
 	public void setEmail(String email) {
