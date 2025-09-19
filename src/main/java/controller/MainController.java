@@ -51,7 +51,7 @@ public class MainController {
 	}
 	
 	
-	@PostMapping("/crbook")
+	@PostMapping("/createbook")
     public Book createBook(@RequestBody Book book) {
 		
         return bookreps.save(book);
