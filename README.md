@@ -1,4 +1,4 @@
-this app is created in spring and maven, restful, with jpa
+this app is created in spring and maven, restful, with jpa, exception
 
 
 postgressql db with 2 tables.
