@@ -2,6 +2,8 @@ package model;
 
 import java.util.Objects;
 
+import jakarta.persistence.*;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.Table;
 
@@ -10,33 +12,19 @@ import jakarta.persistence.Table;
 public class Book {
 
 	
-	@Override
-	public int hashCode() {
-		return Objects.hash(Id, Title, author, isbn);
-	}
-
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		Book other = (Book) obj;
-		return Id == other.Id && Objects.equals(Title, other.Title) && Objects.equals(author, other.author)
-				&& Objects.equals(isbn, other.isbn);
-	}
-
-	public Book(){};
+		public Book(){};
 	
-	
+		@Column(name ="TITLE")
 	private String Title;
 	
-	private int Id;
+	@Id
+	private int ID;
 	
+	
+	@Column(name ="AUTHOR")
 	private String author;
 	
+	@Column(name ="ISBN")
 	private String isbn;
 
 	public String getTitle() {
@@ -48,11 +36,11 @@ public class Book {
 	}
 
 	public int getId() {
-		return Id;
+		return ID;
 	}
 
 	public void setId(int id) {
-		Id = id;
+		ID = id;
 	}
 
 	public String getAuthor() {
@@ -71,7 +59,25 @@ public class Book {
 		this.isbn = isbn;
 	}
 	
-	
+	@Override
+	public int hashCode() {
+		return Objects.hash(ID, Title, author, isbn);
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Book other = (Book) obj;
+		return ID == other.ID && Objects.equals(Title, other.Title) && Objects.equals(author, other.author)
+				&& Objects.equals(isbn, other.isbn);
+	}
+
+
 	
 	
 	

@@ -2,6 +2,7 @@ package model;
 
 import java.util.Objects;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
@@ -18,35 +19,39 @@ public class Borrower {
 	
 	
 	@Id
-	private int idborrower;
+	private int UID;
 	
-	private String name;
 	
-	private String email;
+	@Column(name ="NAME")
+	private String NAME;
+	
+	
+	@Column(name ="EMAIL")
+	private String EMAIL;
 
 	public int getIdborrower() {
-		return idborrower;
+		return getIdborrower();
 	}
 
 	public void setIdborrower(int idborrower) {
-		this.idborrower = idborrower;
+		this.UID = idborrower;
 	}
 
 	public String getName() {
-		return name;
+		return NAME;
 	}
 
 	public void setName(String name) {
-		this.name = name;
+		this.NAME = name;
 	}
 
 	public String getEmail() {
-		return email;
+		return EMAIL;
 	}
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(email, idborrower, name);
+		return Objects.hash(EMAIL, UID, NAME);
 	}
 
 	@Override
@@ -58,11 +63,11 @@ public class Borrower {
 		if (getClass() != obj.getClass())
 			return false;
 		Borrower other = (Borrower) obj;
-		return Objects.equals(email, other.email) && idborrower == other.idborrower && Objects.equals(name, other.name);
+		return Objects.equals(EMAIL, other.EMAIL) && UID == other.UID && Objects.equals(NAME, other.NAME);
 	}
 
 	public void setEmail(String email) {
-		this.email = email;
+		this.EMAIL = email;
 	}
 	
 	

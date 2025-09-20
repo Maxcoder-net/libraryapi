@@ -32,11 +32,12 @@ public class Viewcontroller {
 	BookRepository bookreps;
 	
 	
+	@SuppressWarnings("unchecked")
 	@GetMapping( "/booksall")
 	ResponseEntity<Book> getbooks()	
 	{
 		
-		return (ResponseEntity<Book>) listbook;
+		return  (ResponseEntity<Book>) listbook;
 		
 	}
 	
